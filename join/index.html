@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>벌컵 트레이너 연결</title>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<main>
+  <p class="wordmark">벌컵</p>
+  <h1>벌컵 앱에서 열어 주세요</h1>
+  <p class="sub">트레이너가 보낸 연결 초대예요.<br>앱이 없으면 먼저 설치해 주세요.</p>
+
+  <a class="button" href="https://apps.apple.com/kr/app/id6822601640">App Store에서 받기</a>
+
+  <section class="card" id="code-card" aria-labelledby="code-label" hidden>
+    <p class="label" id="code-label">연결 코드</p>
+    <p class="code" id="code"></p>
+    <button class="button secondary" id="copy" type="button">코드 복사</button>
+    <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+  </section>
+
+  <p class="card" id="no-code" hidden>링크에서 코드를 찾지 못했어요.<br>받은 6자리 코드를 앱에 직접 넣어 주세요.</p>
+
+  <p>앱의 <strong>마이 &gt; 트레이너와 연결하기</strong>에<br>코드를 넣어도 돼요.</p>
+  <p class="sub">코드는 이 화면에만 보이고 어디로도 보내지 않아요.</p>
+
+  <footer>
+    <a href="https://pherd94.github.io/bulcup-privacy/">개인정보 처리방침</a>
+    <a href="https://pherd94.github.io/bulcup-privacy/terms/">이용약관</a>
+  </footer>
+</main>
+<script src="/join/join.js"></script>
+</body>
+</html>
