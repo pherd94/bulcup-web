@@ -1,0 +1,177 @@
+/* bulcup.kr landing ("스크롤 = 한 세트"). Plan: docs/plans/site/landing.md. Tokens come from site.css.
+   --accent-text: light-mode accent dark enough for text (4.74:1 on bg); dark mode keeps the accent (7.5:1). */
+:root { --accent-text: #B84A00; --accent-soft: #FFE9D9; --hud-bg: #0B0B0F; --hud-text: #F5F5F2; --hud-accent: #FF7A1A; --gutter: max(1.25rem, env(safe-area-inset-left)); }
+@media (prefers-color-scheme: dark) { :root { --accent-text: var(--accent); --accent-soft: #3A2210; } }
+
+.landing main { max-width: none; margin: 0; padding: 0; }
+
+/* Header */
+.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: max(1rem, env(safe-area-inset-top)) var(--gutter) 0;
+  max-width: 72rem; margin: 0 auto;
+}
+.brand { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; text-decoration: none; min-height: 44px; }
+.brand img { border-radius: 8px; }
+.top__get { color: var(--text-secondary); font-size: .9375rem; font-weight: 600; text-decoration: none; padding: .75rem 0; }
+
+/* Shared poster type: huge, bold, tight, in the accent. */
+.poster {
+  font-size: clamp(2.5rem, 11.5vw, 6.75rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 800;
+  color: var(--accent-text); margin: 0 0 1.5rem; text-wrap: balance;
+}
+.kicker, .set__no { font-size: .9375rem; font-weight: 700; color: var(--text-secondary); margin: 0 0 1rem; }
+.lead { font-size: clamp(1.125rem, 2.6vw, 1.5rem); line-height: 1.5; font-weight: 600; max-width: 34rem; }
+.num { font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+.num small, dd small { font-size: .55em; font-weight: 600; color: var(--text-secondary); margin-left: .15em; }
+.note { font-size: .8125rem; color: var(--text-secondary); margin: .75rem 0 0; }
+.center { text-align: center; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.hero, .set, .end { max-width: 72rem; margin: 0 auto; padding: 0 var(--gutter); }
+.hero { min-height: 88svh; display: flex; flex-direction: column; justify-content: center; padding-top: 2rem; padding-bottom: 3rem; }
+.hero .poster { font-size: clamp(3rem, 17vw, 9.5rem); max-width: 7ch; }
+.nw { white-space: nowrap; }
+.cue { margin-top: 2.5rem; font-weight: 700; text-wrap: balance; }
+.landing p { text-wrap: pretty; }
+.cue::after { content: " ↓"; content: " ↓" / ""; color: var(--accent-text); }
+
+/* One set */
+.set { padding-top: 6rem; padding-bottom: 6rem; position: relative; }
+.set > p:not(.set__no) { max-width: 34rem; }
+.set__no { display: flex; align-items: flex-end; gap: .75rem; }
+.set__big {
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums;
+  font-size: clamp(5rem, 24vw, 11rem); line-height: .8; font-weight: 800; color: var(--accent-text);
+}
+
+/* App-like cards (DESIGN.md §4: fill + 1px stroke, radius 20, no shadow). */
+.card { max-width: 30rem; margin-top: 2rem; }
+.card__title { font-size: 1.25rem; font-weight: 700; margin: 0 0 .75rem; }
+.card__meta { font-size: .75rem; font-weight: 600; color: var(--text-secondary); margin: 0 0 .25rem; }
+.routine, .sets, .extra { list-style: none; margin: 0; padding: 0; }
+.routine li { display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: .75rem; min-height: 56px; border-top: 1px solid var(--stroke); }
+.routine li:first-child { border-top: 0; }
+.routine img { display: block; width: 40px; height: 40px; background: var(--surface-raised); border-radius: 12px; padding: 2px; }
+.routine li > span:first-of-type { font-weight: 600; }
+.routine .num, .plan-line { font-size: .9375rem; color: var(--text-secondary); }
+
+.card--guide { padding: 0; overflow: hidden; }
+.hero-art { display: block; width: 100%; height: auto; }
+.guide { padding: 0 1.25rem 1.25rem; }
+.guide h3 { font-size: .9375rem; font-weight: 700; margin: 1rem 0 .25rem; }
+.guide p, .guide ol { margin: 0; font-size: .9375rem; }
+.guide ol { padding-left: 1.25rem; }
+
+.sets__row {
+  display: grid; grid-template-columns: 1.5rem 1fr 1fr 2.25rem; align-items: center; gap: .5rem;
+  min-height: 52px; padding: 0 .75rem; margin-bottom: .5rem; border-radius: 12px; background: var(--accent-soft);
+  font-size: 1.375rem; font-weight: 600;
+}
+.sets__row > .num:first-child { font-size: .9375rem; color: var(--text-secondary); }
+.check { width: 2rem; height: 2rem; border-radius: 50%; background: var(--accent); position: relative; justify-self: end; }
+.check::after { content: ""; position: absolute; left: .7rem; top: .45rem; width: .45rem; height: .85rem; border: solid var(--on-accent); border-width: 0 .2rem .2rem 0; transform: rotate(45deg); }
+.next { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--stroke); }
+.next__kg { font-size: 2.125rem; font-weight: 700; margin: 0; line-height: 1.2; }
+
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: .25rem; text-align: center; }
+.cal b { font-size: .75rem; font-weight: 600; color: var(--text-secondary); padding-bottom: .25rem; }
+.cal i { font-style: normal; font-family: ui-rounded, "SF Pro Rounded", system-ui, sans-serif; font-size: .9375rem; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; }
+.cal .done { background: var(--accent); color: var(--on-accent); font-weight: 700; }
+.cal .plan { box-shadow: inset 0 0 0 2px var(--text-secondary); }
+.cal .today { font-weight: 700; text-decoration: underline; text-underline-offset: .2em; }
+.cal__legend { font-size: .8125rem; color: var(--text-secondary); margin: .75rem 0 .25rem; display: flex; align-items: center; gap: .375rem; flex-wrap: wrap; }
+.dot { width: .75rem; height: .75rem; border-radius: 50%; display: inline-block; }
+.dot--done { background: var(--accent); }
+.dot--plan { box-shadow: inset 0 0 0 2px var(--text-secondary); margin-left: .5rem; }
+.plan-line { margin: 0; }
+
+.body { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: 1rem 0 0; }
+.body dt { font-size: .75rem; font-weight: 600; color: var(--text-secondary); }
+.body dd { margin: 0; font-size: 1.75rem; font-weight: 700; line-height: 1.2; white-space: nowrap; }
+
+/* Rest interlude: the one full-accent band, like the app's rest timer taking over. */
+.rest {
+  background: var(--accent); color: var(--on-accent); text-align: center;
+  padding: 4rem var(--gutter); min-height: 70svh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.rest p { margin: 0; max-width: 26rem; font-weight: 600; }
+.rest .rest__title { font-size: clamp(1.25rem, 4vw, 1.75rem); font-weight: 800; }
+.rest .rest__timer { margin: .25rem 0 1rem; line-height: 1; }
+.rest__time {
+  display: block; font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums;
+  font-size: clamp(6rem, 34vw, 15rem); font-weight: 800; letter-spacing: -.04em;
+}
+.rest__end { display: block; height: 0; overflow: hidden; font-weight: 800; }
+.rest.is-over .rest__end { height: auto; margin-top: .5rem; }
+.rest__skip {
+  margin-top: 1.5rem; color: var(--on-accent); font-weight: 700; text-decoration: none;
+  min-height: 44px; padding: .625rem 1.25rem; border: 2px solid var(--on-accent); border-radius: 999px;
+}
+
+/* The one App Store link between the top bar and the finish (the page is ~8,700px on a phone). */
+.rest__get { margin-top: 1rem; color: var(--on-accent); font-weight: 700; min-height: 44px; display: inline-flex; align-items: center; }
+
+/* Finish */
+.end { padding-top: 6rem; padding-bottom: 4rem; text-align: center; overflow-x: clip; }
+.end .poster, .end .lead { margin-left: auto; margin-right: auto; }
+.end .button { max-width: 22rem; margin: 2rem auto 0; }
+.stamp {
+  display: inline-block; margin: 0 0 2.5rem; padding: .1em .35em .15em;
+  font-size: clamp(4.5rem, 26vw, 12rem); font-weight: 800; line-height: 1; letter-spacing: -.06em;
+  color: var(--accent-text); border: .08em solid currentColor; border-radius: .18em; transform: rotate(-8deg);
+}
+.extra { text-align: left; max-width: 30rem; margin: 3rem auto 0; }
+.extra li { padding: 1rem 0; border-top: 1px solid var(--stroke); font-size: .9375rem; color: var(--text-secondary); }
+.extra strong { display: block; color: var(--text-primary); font-size: 1.0625rem; }
+.end > .note:last-child { max-width: 30rem; margin: 1.5rem auto 0; text-align: left; }
+.foot { max-width: 30rem; margin: 0 auto; padding: 1rem var(--gutter) max(2.5rem, env(safe-area-inset-bottom)); border-top: 1px solid var(--stroke); font-size: .8125rem; }
+.foot a { color: var(--text-secondary); margin-right: 1rem; display: inline-block; padding: .5rem 0; }
+
+/* Gym display (HUD). Hidden without JS; always dark like an LED board. */
+.hud { display: none; }
+.js .hud {
+  display: grid; grid-template-columns: auto auto; grid-template-areas: "label label" "num unit" "bar bar"; align-items: end; column-gap: .2rem;
+  position: fixed; z-index: 10; top: max(.75rem, env(safe-area-inset-top)); right: max(.75rem, env(safe-area-inset-right));
+  padding: .5rem .75rem .6rem; border-radius: 14px; background: var(--hud-bg); color: var(--hud-text);
+  border: 1px solid #26262E; pointer-events: none;
+  opacity: 0; transform: translateY(-.5rem); transition: opacity .25s ease-out, transform .25s ease-out;
+}
+.js .hud.is-on { opacity: 1; transform: none; }
+.hud__label { grid-area: label; font-size: .6875rem; font-weight: 700; color: #A1A1AA; }
+.hud__num {
+  grid-area: num; font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif; font-variant-numeric: tabular-nums;
+  font-size: 2rem; font-weight: 800; line-height: 1; color: var(--hud-accent); min-width: 2ch;
+}
+.hud__unit { grid-area: unit; font-size: .75rem; font-weight: 700; color: #A1A1AA; padding-bottom: .15rem; }
+.hud__bar { grid-area: bar; display: flex; gap: 3px; margin-top: .4rem; }
+.hud__bar i { flex: 1; height: 4px; border-radius: 2px; background: #3A3A44; }
+.hud__bar i.is-done { background: var(--hud-accent); }
+
+/* JS-only start states (no JS or reduced motion = the final state is what you see). */
+.js .sets__row { background: var(--surface-raised); transition: background-color .25s ease-out; }
+.js .sets__row .check { transform: scale(.4); opacity: 0; transition: transform .25s cubic-bezier(.3, 1.4, .5, 1), opacity .2s ease-out; }
+.js .sets__row:nth-child(2), .js .sets__row:nth-child(2) .check { transition-delay: .5s; }
+.js .is-in .sets__row { background: var(--accent-soft); }
+.js .is-in .sets__row .check { transform: none; opacity: 1; }
+.js .stamp { opacity: 0; transform: scale(1.8) rotate(-16deg); transition: transform .3s cubic-bezier(.2, .9, .3, 1.15), opacity .15s ease-out; }
+.js .stamp.is-in { opacity: 1; transform: rotate(-8deg); }
+
+@media (min-width: 64rem) {
+  .set { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 28rem); column-gap: 4rem; align-items: start; padding-top: 9rem; padding-bottom: 9rem; }
+  .set > .set__no, .set > .poster { grid-column: 1 / -1; }
+  .set > p:not(.set__no) { grid-column: 1; font-size: 1.1875rem; }
+  .set > .card { grid-column: 2; grid-row: 3 / span 2; margin-top: 0; }
+  .js .hud { top: 50%; right: 2rem; transform: translateY(-50%) translateX(.5rem); padding: 1rem 1.25rem 1.1rem; border-radius: 20px; }
+  .js .hud.is-on { transform: translateY(-50%); }
+  .hud__label { font-size: .875rem; }
+  .hud__num { font-size: 4.5rem; }
+  .hud__unit { font-size: 1rem; padding-bottom: .5rem; }
+  .hero, .set { padding-right: 12rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+/* On the orange rest band the default white ring is ~2.3:1; use the band text color. */
+.rest :focus-visible { outline-color: currentColor; }

@@ -3,22 +3,176 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
-<title>벌컵</title>
+<meta name="description" content="헬스장이 처음이라 뭘 해야 할지 막막하다면 벌컵으로 시작해 보세요. 오늘 할 루틴과 기구 쓰는 법을 보여 주고, 다음에 들 무게를 참고용으로 제안해요.">
+<title>벌컵 - 헬스 루틴·운동 기록</title>
+<link rel="icon" href="/img/icon.png">
+<link rel="apple-touch-icon" href="/img/icon.png">
 <link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/landing.css">
+<script src="/landing.js" defer></script>
 </head>
-<body>
+<body class="landing">
+<!-- Gym display: decorative, filled in by landing.js. The real content is the text below. -->
+<div class="hud" aria-hidden="true">
+  <span class="hud__label">준비</span>
+  <span class="hud__num">00</span>
+  <span class="hud__unit">회</span>
+  <span class="hud__bar"><i></i><i></i><i></i><i></i><i></i></span>
+</div>
+
+<header class="top">
+  <a class="brand" href="/"><img src="/img/icon.png" alt="" width="32" height="32">벌컵</a>
+  <a class="top__get" href="https://apps.apple.com/kr/app/id6822601640">앱 받기</a>
+</header>
+
 <main>
-  <p class="wordmark">벌컵</p>
-  <h1>헬스를 처음 시작하는 사람을 위한 운동 루틴·기록 앱</h1>
-  <p class="sub">헬스장 기구 쓰는 법을 알려 주고,<br>다음에 들 무게를 제안해요.</p>
-  <a class="button" href="https://apps.apple.com/kr/app/id6822601640">App Store에서 받기</a>
-  <footer>
-    <a href="https://pherd94.github.io/bulcup-privacy/">개인정보 처리방침</a>
-    <a href="https://pherd94.github.io/bulcup-privacy/terms/">이용약관</a>
-    <a href="https://pherd94.github.io/bulcup-privacy/support/">고객 지원</a>
-  </footer>
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="kicker">헬스 루틴·운동 기록 앱</p>
+    <h1 id="hero-title" class="poster">헬스장이 처음이라 막막하다면</h1>
+    <p class="lead">오늘 할 운동, 기구 쓰는 법, 얼마나 들지부터 차근차근 알려 드려요.</p>
+    <p class="cue">오늘 루틴은 5세트예요. 내리면서 한 세트씩 <span class="nw">해 봐요.</span></p>
+  </section>
+
+  <section class="set" id="set-1" data-step="set" data-set="1" aria-labelledby="set-1-title">
+    <p class="set__no"><span class="set__big" aria-hidden="true">1</span>1세트 · 오늘 할 루틴</p>
+    <h2 id="set-1-title" class="poster">목표만 고르면 <span class="nw">오늘 할 운동이</span> 나와요</h2>
+    <p>목표(체지방 줄이기·근육 늘리기·체력 기르기)와 주 운동 횟수 같은 몇 가지만 고르면 오늘 할 운동을 짜 드려요. 마음에 들지 않는 운동은 바꾸거나 빼고, 순서도 바꿀 수 있어요.</p>
+    <div class="card">
+      <p class="card__meta">예시 · 체지방 줄이기, 주 3회, 처음 시작</p>
+      <p class="card__title">전신 A</p>
+      <ul class="routine">
+        <li><picture><source srcset="/img/ex_leg_press_thumb_dark.svg" media="(prefers-color-scheme: dark)"><img src="/img/ex_leg_press_thumb.svg" alt="" width="40" height="40"></picture><span>레그 프레스</span><span class="num">2세트 × 12~15회</span></li>
+        <li><picture><source srcset="/img/ex_chest_press_thumb_dark.svg" media="(prefers-color-scheme: dark)"><img src="/img/ex_chest_press_thumb.svg" alt="" width="40" height="40"></picture><span>체스트 프레스</span><span class="num">2세트 × 12~15회</span></li>
+        <li><picture><source srcset="/img/ex_lat_pulldown_thumb_dark.svg" media="(prefers-color-scheme: dark)"><img src="/img/ex_lat_pulldown_thumb.svg" alt="" width="40" height="40"></picture><span>랫 풀다운</span><span class="num">2세트 × 12~15회</span></li>
+        <li><picture><source srcset="/img/ex_shoulder_press_thumb_dark.svg" media="(prefers-color-scheme: dark)"><img src="/img/ex_shoulder_press_thumb.svg" alt="" width="40" height="40"></picture><span>숄더 프레스</span><span class="num">2세트 × 12~15회</span></li>
+        <li><picture><source srcset="/img/ex_plank_thumb_dark.svg" media="(prefers-color-scheme: dark)"><img src="/img/ex_plank_thumb.svg" alt="" width="40" height="40"></picture><span>플랭크</span><span class="num">2세트 × 20~40초</span></li>
+      </ul>
+      <p class="note">세트·횟수는 참고용 제안이에요.</p>
+    </div>
+  </section>
+
+  <div class="rest" data-step="rest">
+    <p class="rest__title">휴식</p>
+    <p class="rest__timer" aria-hidden="true"><span class="rest__time">1:30</span><span class="rest__end">쉬는 시간 끝</span></p>
+    <p>세트 사이 90초 쉬어요. 물 한 모금 마시고 와요.</p>
+    <a class="rest__skip" href="#set-2">건너뛰기</a>
+  </div>
+
+  <section class="set" id="set-2" data-step="set" data-set="2" aria-labelledby="set-2-title">
+    <p class="set__no"><span class="set__big" aria-hidden="true">2</span>2세트 · 기구 안내</p>
+    <h2 id="set-2-title" class="poster">처음 보는 기구도 그림으로</h2>
+    <p>운동마다 기구 그림과 찾는 법, 자리 맞추는 법, 자세 포인트를 보여 줘요. 헬스장 직원에게 화면을 그대로 보여 주며 물어볼 수도 있어요. 그 기구가 없으면 비슷한 운동으로 바꿔요.</p>
+    <div class="card card--guide">
+      <picture><source srcset="/img/ex_lat_pulldown_dark.svg" media="(prefers-color-scheme: dark)"><img class="hero-art" src="/img/ex_lat_pulldown.svg" alt="" width="400" height="300"></picture>
+      <div class="guide">
+        <p class="card__title">랫 풀다운</p>
+        <h3>찾는 법</h3>
+        <p>머리 위에 긴 바가 걸려 있고, 앉아서 허벅지를 패드 밑에 넣는 머신이에요.</p>
+        <h3>자리 맞추기</h3>
+        <ol>
+          <li>무게 블록 옆 구멍에 핀을 꽂아요</li>
+          <li>허벅지가 패드에 꼭 끼게 높이를 맞춰요</li>
+          <li>바를 어깨보다 넓게 잡고 앉아요</li>
+          <li>가볍게 한 번 당겨 보고 시작해요</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <div class="rest" data-step="rest">
+    <p class="rest__title">휴식</p>
+    <p class="rest__timer" aria-hidden="true"><span class="rest__time">1:30</span><span class="rest__end">쉬는 시간 끝</span></p>
+    <p>쉬는 시간은 벌컵이 재 줘요. 다른 화면을 봐도 계속 흘러가요.</p>
+    <a class="rest__skip" href="#set-3">건너뛰기</a>
+  </div>
+
+  <section class="set" id="set-3" data-step="set" data-set="3" aria-labelledby="set-3-title">
+    <p class="set__no"><span class="set__big" aria-hidden="true">3</span>3세트 · 기록</p>
+    <h2 id="set-3-title" class="poster">세트는 체크 한 번, 쉬는 시간은 알아서</h2>
+    <p>아래 큰 버튼으로 세트를 바로 완료하면 쉬는 시간을 재 줘요. 무게와 횟수는 빠른 버튼으로 넣고, 지난 기록도 다시 열어 고칠 수 있어요. 지난 기록을 바탕으로 다음에 들 무게를 참고용으로 제안해요.</p>
+    <div class="card">
+      <p class="card__title">랫 풀다운</p>
+      <ol class="sets">
+        <li class="sets__row"><span class="num">1</span><span class="num">20<small>kg</small></span><span class="num">15<small>회</small></span><span class="check" aria-hidden="true"></span><span class="sr">완료</span></li>
+        <li class="sets__row"><span class="num">2</span><span class="num">20<small>kg</small></span><span class="num">15<small>회</small></span><span class="check" aria-hidden="true"></span><span class="sr">완료</span></li>
+      </ol>
+      <div class="next">
+        <p class="card__meta">다음에 올려 볼 무게</p>
+        <p class="next__kg num">22.5<small>kg</small></p>
+        <p class="note">모든 세트를 목표 횟수만큼 채운 운동이에요. 참고용 제안이라 무거우면 줄여도 괜찮아요.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rest" data-step="rest">
+    <p class="rest__title">휴식</p>
+    <p class="rest__timer" aria-hidden="true"><span class="rest__time">1:30</span><span class="rest__end">쉬는 시간 끝</span></p>
+    <p>쉬는 시간은 마이 탭에서 60초부터 120초까지 바꿀 수 있어요.</p>
+    <a class="rest__skip" href="#set-4">건너뛰기</a>
+    <a class="rest__get" href="https://apps.apple.com/kr/app/id6822601640">쉬는 동안 앱 받아 두기</a>
+  </div>
+
+  <section class="set" id="set-4" data-step="set" data-set="4" aria-labelledby="set-4-title">
+    <p class="set__no"><span class="set__big" aria-hidden="true">4</span>4세트 · 일정</p>
+    <h2 id="set-4-title" class="poster">운동할 날은 일정 탭에서</h2>
+    <p>한 달 달력에서 끝낸 운동을 한눈에 봐요. 운동할 날과 시간을 미리 정하고, 원하면 미리 알림도 받아요.</p>
+    <div class="card">
+      <p class="card__title">이번 달</p>
+      <div class="cal" aria-hidden="true">
+        <b>일</b><b>월</b><b>화</b><b>수</b><b>목</b><b>금</b><b>토</b>
+        <i class="cal__gap"></i><i class="cal__gap"></i><i>1</i><i class="done">2</i><i>3</i><i class="done">4</i><i>5</i>
+        <i>6</i><i class="done">7</i><i>8</i><i class="done">9</i><i>10</i><i class="done">11</i><i>12</i>
+        <i>13</i><i class="done">14</i><i>15</i><i class="today plan">16</i><i>17</i><i class="plan">18</i><i>19</i>
+        <i>20</i><i class="plan">21</i><i>22</i><i class="plan">23</i><i>24</i><i class="plan">25</i><i>26</i>
+      </div>
+      <p class="cal__legend"><span class="dot dot--done" aria-hidden="true"></span>끝낸 날 <span class="dot dot--plan" aria-hidden="true"></span>계획한 날</p>
+      <p class="plan-line">오늘 계획 · <span class="num">19:00</span> 전신 B</p>
+    </div>
+  </section>
+
+  <div class="rest" data-step="rest">
+    <p class="rest__title">휴식</p>
+    <p class="rest__timer" aria-hidden="true"><span class="rest__time">1:30</span><span class="rest__end">쉬는 시간 끝</span></p>
+    <p>마지막 세트예요. 숨 고르고 가요.</p>
+    <a class="rest__skip" href="#set-5">건너뛰기</a>
+  </div>
+
+  <section class="set" id="set-5" data-step="set" data-set="5" aria-labelledby="set-5-title">
+    <p class="set__no"><span class="set__big" aria-hidden="true">5</span>5세트 · 내 몸</p>
+    <h2 id="set-5-title" class="poster">체성분 결과지는 사진 한 장으로</h2>
+    <p>오늘 탭의 내 몸에서 결과지를 찍으면 기기 안에서 숫자를 읽어 확인 화면에 보여 줘요. 직접 확인하고 고친 뒤에만 저장되고, 결과지 사진은 어디에도 저장하지 않아요. 결과지가 없으면 직접 입력해도 돼요.</p>
+    <div class="card">
+      <p class="card__title">숫자 확인</p>
+      <p class="note">결과지와 같은지 확인해 주세요. 틀린 숫자는 눌러서 고칠 수 있어요.</p>
+      <dl class="body">
+        <div><dt>체중</dt><dd class="num">72.4<small>kg</small></dd></div>
+        <div><dt>골격근량</dt><dd class="num">31.2<small>kg</small></dd></div>
+        <div><dt>체지방률</dt><dd class="num">22.8<small>%</small></dd></div>
+      </dl>
+      <p class="note">예시 숫자예요. 체성분 기록은 로그인해도 이 폰에만 있어요.</p>
+    </div>
+  </section>
+
+  <section class="end" data-step="end" aria-labelledby="end-title">
+    <p class="stamp">오운완</p>
+    <h2 id="end-title" class="poster">5세트 끝. 수고했어요.</h2>
+    <p class="lead">이제 헬스장에서 진짜 1세트를 해 볼 차례예요.</p>
+    <a class="button" href="https://apps.apple.com/kr/app/id6822601640">App Store에서 받기</a>
+    <p class="note center">iPhone · iOS 17 이상 · 만 14세 이상</p>
+    <ul class="extra">
+      <li><strong>오늘 먹은 것도 가볍게</strong>끼니를 사진이나 메모로 남겨요. 칼로리는 계산하지 않아요.</li>
+      <li><strong>로그인은 선택</strong>애플이나 카카오로 로그인하면 폰을 바꿔도 운동 기록이 이어져요. 로그인하지 않아도 다른 기능은 그대로 쓸 수 있어요.</li>
+    </ul>
+    <p class="note">벌컵이 보여 주는 숫자와 제안은 일반 건강관리를 위한 참고용 추정치예요. 의료 전문가의 판단이나 상담을 대신하지 않아요.</p>
+  </section>
 </main>
+
+<footer class="foot">
+  <a href="https://pherd94.github.io/bulcup-privacy/">개인정보 처리방침</a>
+  <a href="https://pherd94.github.io/bulcup-privacy/terms/">이용약관</a>
+  <a href="https://pherd94.github.io/bulcup-privacy/support/">고객 지원</a>
+</footer>
 </body>
 </html>
