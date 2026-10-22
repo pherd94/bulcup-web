@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["V2LV98H8GJ.com.pherd.Bulcup"],
+        "components": [
+          { "/": "/join", "comment": "Invite link https://bulcup.kr/join#CODE. The code stays in the fragment." },
+          { "/": "/join/", "comment": "Same page after GitHub Pages adds the trailing slash." }
+        ]
+      }
+    ]
+  }
+}
