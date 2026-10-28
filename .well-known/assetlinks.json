@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pherd.bulcup",
+      "sha256_cert_fingerprints": [
+        "4D:86:CA:C1:26:4D:7D:B5:58:EE:90:09:B2:7B:B9:4A:3D:E5:FE:8D:F5:2C:52:53:C9:9B:77:15:B2:DB:62:2A"
+      ]
+    }
+  }
+]
