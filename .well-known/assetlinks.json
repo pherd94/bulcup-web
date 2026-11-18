@@ -5,7 +5,9 @@
       "namespace": "android_app",
       "package_name": "com.pherd.bulcup",
       "sha256_cert_fingerprints": [
-        "4D:86:CA:C1:26:4D:7D:B5:58:EE:90:09:B2:7B:B9:4A:3D:E5:FE:8D:F5:2C:52:53:C9:9B:77:15:B2:DB:62:2A"
+        "4D:86:CA:C1:26:4D:7D:B5:58:EE:90:09:B2:7B:B9:4A:3D:E5:FE:8D:F5:2C:52:53:C9:9B:77:15:B2:DB:62:2A",
+        "8E:B9:46:81:98:0B:54:A9:E2:6E:B1:36:4E:CF:49:70:E5:32:D2:0F:46:76:40:5B:43:17:C0:CF:F2:AA:34:EF",
+        "75:05:C2:73:A1:A0:87:57:FC:D4:31:45:AB:10:CE:5F:11:80:A0:ED:78:93:22:3A:97:0E:70:62:2B:41:8D:19"
       ]
     }
   }
